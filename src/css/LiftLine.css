@@ -1,0 +1,102 @@
+.lift-dashboard-row {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    padding: 20px;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.lift-line-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+}
+
+.lift-id-label {
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.lift-line {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 6px;
+    border-radius: 10px;
+    position: relative;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    width: 4px; /* Thin line */
+}
+
+.normal-line {
+    background-color: yellow;
+    color: yellow;
+}
+
+.alarm-line {
+    background-color: red;
+    color: red;
+}
+
+.blocked-line {
+    background-color: grey;
+    color: grey;
+    opacity: 0.4;
+}
+
+.floor-container {
+    position: relative;
+    margin: 8px 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.floor-dot {
+    width: 24px; /* Larger dots */
+    height: 24px;
+    border-radius: 50%;
+    background-color: currentColor; /* Dot will inherit the line's color */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px; /* Larger text */
+    z-index: 1; /* Above the line */
+}
+
+.floor-dot-text {
+    color:black;
+    font-weight: bold;
+}
+
+
+
+.lift-hexagon {
+    position: absolute;
+    width: 40px;  /* Slightly wider than before */
+    height: 50px; /* More vertical height */
+    background-color: #444;
+    clip-path: polygon(
+        25% 0%,   /* Top-left corner */
+        75% 0%,   /* Top side */
+        100% 25%, /* Top-right corner */
+        100% 75%, /* Bottom-right corner */
+        75% 100%, /* Bottom side */
+        25% 100%, /* Bottom-left corner */
+        0% 75%,   /* Left side */
+        0% 25%    /* Top-left corner */
+    );
+    z-index: 0; /* Ensure octagon is behind the dot/line */
+    transition: background-color 0.3s ease;
+}
+
+
+.lift-hexagon.door-open {
+    background-color: orange;
+}

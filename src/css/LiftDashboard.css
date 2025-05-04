@@ -1,0 +1,8 @@
+.dashboard {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px; /* Optional: adds spacing between lifts */
+  padding: 20px;
+}
