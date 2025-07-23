@@ -7,11 +7,11 @@ import "../css/LiftDashboard.css";
 const LiftDashboard = () => {
   const [liftsData, setLiftsData] = useState([]); // Store full lift data, including id
   const [maxFloor, setMaxFloor] = useState(0);
-  const socket = io("http://0.0.0.0:5000"); // Flask backend
+  const socket = io("http://127.0.0.1:5000"); // Flask backend
 
   useEffect(() => {
     axios
-      .get("http://0.0.0.0:5000/intialize_data")
+      .get("http://127.0.0.1:5000/intialize_data")
       .then((response) => {
         setMaxFloor(response.data.max_floor);
         const liftIds = response.data.lift_ids;
@@ -59,7 +59,7 @@ const LiftDashboard = () => {
   useEffect(() => {
     // Fetch all lift data once when the component mounts (no dependency)
     axios
-      .get("http://0.0.0.1:5000/get_all_lifts")
+      .get("http://127.0.0.1:5000/get_all_lifts")
       .then((response) => {
         const lifts = Object.values(response.data.data); // Convert the data to an array
         setLiftsData(lifts); // Set the initial lift data state
