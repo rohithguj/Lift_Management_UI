@@ -1,6 +1,7 @@
 .lift-dashboard-row {
     display: flex;
     flex-direction: row;
+    overflow-x: auto;
     gap: 40px;
     padding: 20px;
     justify-content: center;
@@ -29,7 +30,9 @@
     position: relative;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
     width: 4px; /* Thin line */
+    transition: background-color 2s ease;  /* Smooth transition for line color */
 }
+
 
 .normal-line {
     background-color: yellow;
@@ -55,7 +58,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: transform 0.5s ease-in-out; /* Smooth vertical movement transition */
 }
+
 
 .floor-dot {
     width: 24px; /* Larger dots */
@@ -68,6 +73,7 @@
     align-items: center;
     font-size: 14px; /* Larger text */
     z-index: 1; /* Above the line */
+    transition: background-color 2s ease;
 }
 
 .floor-dot-text {
@@ -79,9 +85,9 @@
 
 .lift-hexagon {
     position: absolute;
-    width: 40px;  /* Slightly wider than before */
-    height: 50px; /* More vertical height */
-    background-color: #444;
+    width: 36px;  /* Slightly wider */
+    height: 56px; /* More vertical height */
+    background-color: #274061;
     clip-path: polygon(
         25% 0%,   /* Top-left corner */
         75% 0%,   /* Top side */
@@ -92,11 +98,35 @@
         0% 75%,   /* Left side */
         0% 25%    /* Top-left corner */
     );
-    z-index: 0; /* Ensure octagon is behind the dot/line */
-    transition: background-color 0.3s ease;
+    z-index: 0; /* Ensure hexagon is behind the dot/line */
+    transition: background-color 2s ease; /* Smooth transition for hexagon color */
 }
 
 
+
 .lift-hexagon.door-open {
-    background-color: orange;
+    background-color: rgb(255, 145, 0);
+}
+
+@media (max-width: 600px) {
+    .lift-line {
+        width: 28px;
+        padding: 4px 2px;
+    }
+
+    .floor-container {
+        width: 32px;
+        height: 32px;
+    }
+
+    .floor-dot {
+        width: 18px;
+        height: 18px;
+        font-size: 10px;
+    }
+
+    .lift-hexagon {
+        width: 36px;
+        height: 42px;
+    }
 }

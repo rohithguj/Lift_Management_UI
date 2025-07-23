@@ -1,5 +1,11 @@
 .App {
-  text-align: center;
+  /* text-align: center; */
+    background-color: rgb(190, 162, 162);
+}
+
+h1 {
+  margin: 0;
+  padding: 30px;
 }
 
 .App-logo {
